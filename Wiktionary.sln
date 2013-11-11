@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteBatchImport", "SqliteBatchImport\SqliteBatchImport.csproj", "{77A03314-9210-400F-B554-0EC5E5F4601F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiktionaryMapper", "WiktionaryMapper\WiktionaryMapper.csproj", "{4989F2E7-BB71-48D6-B741-61D09DD38209}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiktionaryParser", "WiktionaryParser\WiktionaryParser.csproj", "{490E10C5-B9CD-4C6B-8774-A18E7ECE501F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77A03314-9210-400F-B554-0EC5E5F4601F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77A03314-9210-400F-B554-0EC5E5F4601F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77A03314-9210-400F-B554-0EC5E5F4601F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77A03314-9210-400F-B554-0EC5E5F4601F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4989F2E7-BB71-48D6-B741-61D09DD38209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4989F2E7-BB71-48D6-B741-61D09DD38209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4989F2E7-BB71-48D6-B741-61D09DD38209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4989F2E7-BB71-48D6-B741-61D09DD38209}.Release|Any CPU.Build.0 = Release|Any CPU
+		{490E10C5-B9CD-4C6B-8774-A18E7ECE501F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{490E10C5-B9CD-4C6B-8774-A18E7ECE501F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{490E10C5-B9CD-4C6B-8774-A18E7ECE501F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{490E10C5-B9CD-4C6B-8774-A18E7ECE501F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
