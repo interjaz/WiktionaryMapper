@@ -89,6 +89,26 @@ namespace Memoling.Tools.WiktionaryMapper
                 {
                     TagPattern = TagPatterns.Category
                 },
+                // Remove Quotes
+                new TagTransformation() 
+                {
+                    TagPattern = TagPatterns.Quote
+                },
+                // Remove explicit references
+                new TagTransformation() 
+                {
+                    TagPattern = TagPatterns.ReferenceExplicit
+                },
+                // Remove picture dictionaries
+                new TagTransformation() 
+                {
+                    TagPattern = TagPatterns.PictureDictionary
+                },
+                // Remove orphan lines
+                new TagTransformation() 
+                {
+                    TagPattern = TagPatterns.OrphanLine
+                },
                 // Shorten tags
                 new TagTransformation() 
                 {
@@ -119,21 +139,31 @@ namespace Memoling.Tools.WiktionaryMapper
                     {
                         return match.Value.Substring(2,match.Value.Length-4);
                     }
-                }
+                },
 
             };
         }
 
         private IEnumerable<TranslationsWithMeaning> TranslationWithMeaningTransformation(DataProcessorContext context, string header, string content)
         {
-            var matches = TagPatterns.TranslationMeaning.Matches(content);
+            var matches = TagPatterns.TranslationMeaning.Matches(content).Cast<Match>().ToList();
 
             if (matches.Count > 0)
             {
-                foreach (Match match in matches)
+
+                for (int i = 0; i < matches.Count;i++ )
                 {
+                    Match match = matches[i];
+
                     // It should have following format {{...|meaning}}
                     string[] parts = match.Value.Split(new char[] { '|', '}' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    string matchContent = content.Substring(match.Index);
+                    if (i + 1 < matches.Count)
+                    {
+                        // Not the last element
+                        matchContent = content.Substring(0, matches[i + 1].Index - match.Index);
+                    }
 
                     if (parts.Count() > 1)
                     {
@@ -141,8 +171,8 @@ namespace Memoling.Tools.WiktionaryMapper
                         yield return new TranslationsWithMeaning()
                         {
                             MeaningId = TranslationsWithMeaning.NextId(),
-                            Meaning = meaning,
-                            Translations = TranslationTransformation(context, header, content)
+                            Meaning = TagTransformation.Transform(meaning, commonTagTransformations).Trim(),
+                            Translations = TranslationTransformation(context, header, matchContent)
                         };
                     }
                     else
@@ -150,7 +180,7 @@ namespace Memoling.Tools.WiktionaryMapper
                         // Unfortunately this happens too
                         yield return new TranslationsWithMeaning()
                         {
-                            Translations = TranslationTransformation(context, header, content)
+                            Translations = TranslationTransformation(context, header, matchContent)
                         };
                     }
                 }
