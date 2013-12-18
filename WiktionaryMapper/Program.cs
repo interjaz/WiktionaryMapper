@@ -51,7 +51,7 @@ namespace Memoling.Tools.WiktionaryMapper
                             continue;
                         }
 
-                        if (i++ > 100) break;
+                        //if (i++ > 100) break;             // For testing
                 
                         outputProcessor.Next(result);
                         PrintProgress();
@@ -80,11 +80,11 @@ namespace Memoling.Tools.WiktionaryMapper
             uris.Synonims.Uri = @"\\BARTOSZ-HP\Share\syns.sql";
             uris.Temp.Uri = @"\\BARTOSZ-HP\Share\synsUniq.sql";
 
-            //uris.Source.Uri = @"D:\Share\enwiktionary-20130202-pages-articles-multistream.xml";
-            //uris.Translations.Uri = @"D:\Share\trans.sql";
-            //uris.Definitions.Uri = @"D:\Share\defs.sql";
-            //uris.Synonims.Uri = @"D:\Share\syns.sql";
-            //uris.Temp.Uri = @"D:\Share\synsUniq.sql";
+            uris.Source.Uri = @"D:\Share\enwiktionary-20130202-pages-articles-multistream.xml";
+            uris.Translations.Uri = @"D:\Share\trans.sql";
+            uris.Definitions.Uri = @"D:\Share\defs.sql";
+            uris.Synonims.Uri = @"D:\Share\syns.sql";
+            uris.Temp.Uri = @"D:\Share\synsUniq.sql";
 
             uris.Translations.Format = OutputFormat.Sql;
             uris.Definitions.Format = OutputFormat.Sql;

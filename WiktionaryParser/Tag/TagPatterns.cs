@@ -21,8 +21,14 @@ namespace Memoling.Tools.WiktionaryParser.Tag
         public static Regex Label = new Regex(@"{{label\|[^}}]+}}");
         public static Regex Reference = new Regex(@"\[\[[^\]\]]+]]");
 
+        public static Regex Quote = new Regex(@"{{quote[^}]*}}");
+        public static Regex ReferenceExplicit = new Regex(@"{{reference[^}}]*}}");
+        public static Regex PictureDictionary = new Regex(@"{{ picdic[^}}]*}}");
+
         // This one needs to be used with care, otherwise it may remove important characters.
         // Example when it can be used is when you compare whether match length equals input length (only garbage)
         public static Regex Garbage = new Regex("[~`!@#$%^&*()0-9-_=+{\\[}\\]|\\\\:;\"'<,>.?/ ]*");
+
+        public static Regex OrphanLine = new Regex(@"[-]+$");
     }
 }
