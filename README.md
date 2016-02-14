@@ -9,7 +9,7 @@ It is **not** a Wikipedia Dump to SQL parser.
 Main Features 
 ------------- 
 WiktionaryMapper was designed to handle large XML dumps and uses streaming to read and write data.
-Output object can take any type. This was achieved using dependency injection pattern. 
+Output object can take any type.
 
 Example output 
 -------------- 
